@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\view;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -18,3 +18,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+gszgh
