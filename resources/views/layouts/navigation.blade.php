@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                        <x-application-logo class="block w-auto text-gray-800 fill-current h-9" />
+                    <img src="{{ asset('images/logo2.png') }}" class="block object-contain w-auto h-7">
                 </div>
 
                 <!-- Navigation Links -->

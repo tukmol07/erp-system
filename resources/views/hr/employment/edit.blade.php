@@ -20,8 +20,8 @@
 }
 </style>
 
-<<!-- Full-screen flex container for centering -->
-<div class="flex items-center justify-center min-h-screen bg-gray-100">
+<!-- Centering Wrapper -->
+<div class="flex justify-center py-10">
     <div class="w-full max-w-5xl p-8 bg-white shadow-md rounded-xl">
         <h2 class="mb-6 text-3xl font-semibold text-center text-gray-800">Edit Employment Record</h2>
 
@@ -102,6 +102,7 @@
                     </select>
                 </div>
             </div>
+
             <div class="flex items-center justify-between mt-8">
                 <a href="{{ route('hr.hr.employment.index') }}" class="text-gray-600 hover:text-blue-600">← Back to list</a>
                 <button type="submit" class="submit-btn">Update Record</button>
