@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("departments", function (Blueprint $table) {
-            $table->id();
-            $table->string("department");
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('User')->after('password'); // Or nullable() if you prefer
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 };

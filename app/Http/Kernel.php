@@ -2,77 +2,68 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\RoleHR;
-use App\Http\Middleware\RoleCRM;
-use App\Http\Middleware\RoleUser;
-use App\Http\Middleware\RoleSales;
-use App\Http\Middleware\TrimString;
-use App\Http\Middleware\RoleFinance;
-use App\Http\Middleware\Authenticate;
-use App\Http\Middleware\RolePlanning;
-use App\Http\Middleware\RoleInventory;
-use App\Http\Middleware\RoleMarketing;
-use App\Http\Middleware\RoleReporting;
-use App\Http\Middleware\EncryptCookies;
-use App\Http\Middleware\RoleProduction;
+use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Middleware\HandleCors;
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Http\Middleware\TrustProxies;
+use Illuminate\Auth\Middleware\RequirePassword;
+use Illuminate\Http\Middleware\SetCacheHeaders;
 use Illuminate\Session\Middleware\StartSession;
-use Illuminate\Http\Middleware\ValidatePostSize;
+use App\Http\Middleware\RedirectIfAuthenticated;
+use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Routing\Middleware\ValidateSignature;
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use App\Http\Middleware\PreventRequestsDuringMaintenance;
+use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
-use Illuminate\Auth\Middleware\Authenticate as MiddlewareAuthenticate;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 class Kernel extends HttpKernel
 {
-    /**
-     * The application's global HTTP middleware stack.
-     */
     protected $middleware = [
-        \Illuminate\Http\Middleware\TrustProxies::class,
-        \Illuminate\Http\Middleware\HandleCors::class,
-        \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+        HandleCors::class,
+        TrustProxies::class,
+        ValidatePostSize::class,
         TrimStrings::class,
-        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        ConvertEmptyStringsToNull::class,
     ];
 
-    /**
-     * The application's route middleware groups.
-     */
     protected $middlewareGroups = [
         'web' => [
             EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            ShareErrorsFromSession::class,
+            VerifyCsrfToken::class,
+            SubstituteBindings::class,
         ],
 
         'api' => [
-            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            EnsureFrontendRequestsAreStateful::class,
+            ThrottleRequests::class . ':api',
+            SubstituteBindings::class,
         ],
     ];
 
-    /**
-     * The application's route middleware.
-     */
     protected $routeMiddleware = [
-        'role.hr' => RoleHR::class,
-        'role.production' => RoleProduction::class,
-        'role.planning' => RolePlanning::class,
-        'role.inventory' => RoleInventory::class,
-        'role.reporting' => RoleReporting::class,
-        'role.crm' => RoleCRM::class,
-        'role.sales' => RoleSales::class,
-        'role.marketing' => RoleMarketing::class,
-        'role.finance' => RoleFinance::class,
-        'role.user' => RoleUser::class,
+        'auth' => Authenticate::class,
+        'auth.basic' => AuthenticateWithBasicAuth::class,
+        'cache.headers' => SetCacheHeaders::class,
+        'can' => Authorize::class,
+        'guest' => RedirectIfAuthenticated::class,
+        'password.confirm' => RequirePassword::class,
+        'signed' => ValidateSignature::class,
+        'throttle' => ThrottleRequests::class,
+        'verified' => EnsureEmailIsVerified::class,
+        'is_admin' => \App\Http\Middleware\IsAdmin::class,
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+
     ];
 }

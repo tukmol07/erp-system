@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use session;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -22,13 +26,37 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+
+    public function store(Request $request)
     {
-        $request->authenticate();
+        $request->validate([
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
+        ]);
 
-        $request->session()->regenerate();
+        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+            $user = Auth::user();
+
+            // Role-based redirection
+            return match ($user->role) {
+                'Admin' => redirect()->route('admin.dashboard'),
+                'HR' => redirect()->route('hr.dashboard'),
+                'Accounting' => redirect()->route('accounting.dashboard'),
+                'Marketing' => redirect()->route('marketing.dashboard'),
+                'Production' => redirect()->route('production.dashboard'),
+                'Planning' => redirect()->route('planning.dashboard'),
+                'Inventory' => redirect()->route('inventory.dashboard'),
+                'Reporting' => redirect()->route('reporting.dashboard'),
+                default => redirect()->route('dashboard'), // fallback
+            };
+        }
+
+
+        throw ValidationException::withMessages([
+            'email' => __('auth.failed'),
+        ]);
     }
 
     /**

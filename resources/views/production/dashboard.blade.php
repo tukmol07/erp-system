@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production Dashboard</title>
-</head>
-<body>
-    <h1>Welcome to the Production Dashboard</h1>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<div class="container p-6 mx-auto">
+    <div class="p-4 bg-white rounded shadow-md">
+        <h1 class="mb-4 text-2xl font-bold">{{ $title ?? 'Department Dashboard' }}</h1>
+        <p class="text-gray-700">Welcome to the {{ $department ?? 'Department' }} Dashboard.</p>
