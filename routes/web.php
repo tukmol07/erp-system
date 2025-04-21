@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HR\EmploymentRecordController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Accounting\AccountingController;
-
+use App\Http\Controllers\HR\PayrollController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +47,10 @@ Route::middleware(['auth', 'can:is-hr'])->prefix('hr')->name('hr.')->group(funct
     Route::post('/employment', [EmploymentRecordController::class, 'store'])->name('employment.store');
     Route::get('/employment', [EmploymentRecordController::class, 'index'])->name('employment.index');
     Route::resource('hr/employment', EmploymentRecordController::class)->names('hr.employment');
+    Route::get('/hr/payroll', [PayrollController::class, 'index'])->name('payroll.index');
+    Route::get('/payroll/create', [PayrollController::class, 'create'])->name('payroll.create');
+    Route::resource('payroll', PayrollController::class);
+    Route::post('payroll', [PayrollController::class, 'store'])->name('payroll.store');
 });
 
 

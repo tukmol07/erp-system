@@ -17,6 +17,10 @@
            class="inline-block px-6 py-3 font-semibold text-black transition duration-200 rounded-lg shadow bg-emerald-500 hover:bg-emerald-600">
             📄 View Employment Records
         </a>
+        <a href="{{ route('hr.payroll.index') }}"
+            class="inline-block px-6 py-3 font-semibold text-black transition duration-200 rounded-lg shadow bg-yellow-400 hover:bg-yellow-500">
+            💰 Payroll System
+        </a>
     </div>
 </div>
 @endsection

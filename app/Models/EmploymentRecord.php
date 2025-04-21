@@ -21,4 +21,9 @@ class EmploymentRecord extends Model
         'ticket_provided',
         'residence_renewal',
     ];
+
+    public function payrolls()
+    {
+        return $this->hasMany(Payroll::class);
+    }
 }

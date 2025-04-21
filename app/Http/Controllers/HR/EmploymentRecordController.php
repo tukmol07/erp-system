@@ -15,7 +15,7 @@ class EmploymentRecordController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'employee_name' => 'required|string|max:255',
             'employee_number' => 'required|string|max:50',
             'visa_number' => 'required|string|max:50',
@@ -31,7 +31,7 @@ class EmploymentRecordController extends Controller
             'residence_renewal' => 'required|integer',
         ]);
 
-        EmploymentRecord::create($request->all());
+        EmploymentRecord::create($data);
 
         return redirect()->route('hr.employment.index')->with('success', 'Employment record added.');
     }
