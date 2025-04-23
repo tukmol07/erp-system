@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
+use Illuminate\Support\Facades\Auth;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +36,11 @@ class AppServiceProvider extends ServiceProvider
         Gate::define(ability: 'is-inventory', callback: fn($user) => $user->role === 'Inventory');
         Gate::define('is-marketing', callback: fn($user) => $user->role === 'Marketing');
         Gate::define(ability: 'is-CRM', callback: fn($user) => $user->role === 'CRM');
+
+        View::composer('*', function ($view) {
+            if (Auth::check() && Auth::user()->role === 'HR') {
+                $view->with('unreadNotifications', Auth::user()->unreadNotifications);
+            }
+        });
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use Illuminate\Support\Facades\Schedule;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Middleware\HandleCors;
 use Illuminate\Auth\Middleware\Authenticate;
@@ -66,4 +67,10 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\RoleMiddleware::class,
 
     ];
+
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('notify:contract-expiry')->daily();
+        $schedule->command('contracts:check-expiry')->daily();
+    }
 }

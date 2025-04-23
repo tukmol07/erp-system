@@ -8,6 +8,18 @@
                     <img src="{{ asset('images/logo2.png') }}" class="block object-contain w-auto h-7">
                 </div>
 
+                @auth
+                    @if(auth()->user()->role === 'HR')
+                        <a href="{{ route('hr.hr.notifications') }}" class="relative">
+                            🔔 Notifications
+                            @if(auth()->user()->unreadNotifications->count())
+                                <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full"></span>
+                            @endif
+                        </a>
+                    @endif
+                @endauth
+
+
                 <!-- Navigation Links -->
 
             </div>

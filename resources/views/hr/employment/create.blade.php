@@ -116,6 +116,12 @@
             </div>
 
             <div class="form-group">
+                <label>Contract Expiry Date</label>
+                <input type="date" name="contract_expiry_date" required>
+            </div>
+
+
+            <div class="form-group">
                 <label>Kiwa Contract Number</label>
                 <input type="text" name="kiwa_contract_number" required>
             </div>

@@ -15,7 +15,7 @@ class EmploymentRecordController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'employee_name' => 'required|string|max:255',
             'employee_number' => 'required|string|max:50',
             'visa_number' => 'required|string|max:50',
@@ -23,6 +23,7 @@ class EmploymentRecordController extends Controller
             'nationality' => 'required|string|max:100',
             'date_arrival' => 'required|date',
             'date_hired' => 'required|date',
+            'contract_expiry_date' => 'required|date',
             'kiwa_contract_number' => 'required|string|max:100',
             'salary' => 'required|numeric',
             'educational_background' => 'nullable|string',
@@ -31,7 +32,7 @@ class EmploymentRecordController extends Controller
             'residence_renewal' => 'required|integer',
         ]);
 
-        EmploymentRecord::create($data);
+        $record = EmploymentRecord::create($request->all());
 
         return redirect()->route('hr.employment.index')->with('success', 'Employment record added.');
     }

@@ -11,7 +11,8 @@ class PayrollController extends Controller
 {
     public function index()
     {
-        return view('hr.payroll.index');
+        $payrolls = Payroll::with('employee')->paginate(10);
+        return view('hr.payroll.index', compact('payrolls'));
     }
 
     public function create()
@@ -21,9 +22,10 @@ class PayrollController extends Controller
         return view('hr.payroll.create', compact('employees'));
     }
 
-    public function store(request $request)
+    public function store(Request $request)
     {
-        $request->validated([
+
+        $data = $request->validate([
             'employee_id' => 'required|exists:employment_records,id',
             'month' => 'required|string',
             'basic_salary' => 'required|numeric',
@@ -35,7 +37,7 @@ class PayrollController extends Controller
             'remarks' => 'nullable|string',
         ]);
 
-        Payroll::create($request->all());
+        Payroll::create($data);
 
         return redirect()->route('hr.payroll.index')->with('success', 'Payroll record created successfully.');
     }
