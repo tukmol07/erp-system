@@ -20,7 +20,13 @@ class EmploymentRecord extends Model
         'skills',
         'ticket_provided',
         'residence_renewal',
+        'contract_expiry_date'
     ];
+
+    protected $casts = [
+        'contract_expiry_date' => 'date',
+    ];
+
 
     public function payrolls()
     {

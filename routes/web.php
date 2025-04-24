@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;

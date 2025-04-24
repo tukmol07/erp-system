@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             if (Auth::check() && Auth::user()->role === 'HR') {
-                $view->with('unreadNotifications', Auth::user()->unreadNotifications);
+                $view->with('unreadNotifications', Auth::user()->unreadNotifications()->take(5)->get());
             }
         });
     }

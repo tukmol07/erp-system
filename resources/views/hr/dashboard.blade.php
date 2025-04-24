@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -6,12 +7,6 @@
         <h1 class="mb-2 text-3xl font-bold text-gray-800">HR Dashboard</h1>
         <p class="text-gray-600">Welcome to the Human Resources Management Panel.</p>
     </div>
-
-    @foreach(auth()->user()->unreadNotifications as $notification)
-        <div class="p-3 mb-2 bg-yellow-100 border-l-4 border-yellow-500">
-            {{ $notification->data['message'] }}
-        </div>
-    @endforeach
 
 
     <!-- Action Buttons -->
@@ -31,3 +26,4 @@
     </div>
 </div>
 @endsection
+

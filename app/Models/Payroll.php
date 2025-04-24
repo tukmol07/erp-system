@@ -14,6 +14,8 @@ class Payroll extends Model
         'deductions',
         'overtime_hours',
         'overtime_rate',
+        'overtime_pay',
+        'bonus',
         'net_salary',
         'remarks',
     ];

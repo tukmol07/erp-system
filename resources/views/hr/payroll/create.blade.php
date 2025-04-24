@@ -4,6 +4,13 @@
 <div class="container max-w-4xl p-6 mx-auto mt-6 bg-white rounded shadow">
     <h2 class="mb-4 text-2xl font-bold">Create Payroll Record</h2>
 
+    <div class="mb-4">
+        <a href="{{ route('hr.dashboard') }}" class="inline-block px-4 py-2 text-white bg-gray-600 rounded hover:bg-gray-700">
+            ← Back to HR Dashboard
+        </a>
+    </div>
+
+
     <form action="{{ route('hr.payroll.store') }}" method="POST">
         @csrf
 
@@ -44,13 +51,8 @@
             </div>
 
             <div>
-                <label for="overtime_rate" class="block text-sm font-medium">Overtime Rate</label>
-                <input type="number" step="0.01" name="overtime_rate" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            </div>
-
-            <div>
-                <label for="net_salary" class="block text-sm font-medium">Net Salary</label>
-                <input type="number" step="0.01" name="net_salary" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <label for="bonus" class="block text-sm font-medium">Bonus</label>
+                <input type="number" step="0.01" name="bonus" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
         </div>
 
