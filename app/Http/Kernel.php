@@ -99,6 +99,9 @@ class Kernel extends HttpKernel
     {
         $schedule->command('notify:contract-expiry')->daily();
         $schedule->command('contracts:check-expiry')->daily();
+        $schedule->command('notify:payroll-reminder')
+            ->monthlyOn(25, '08:00'); // Run on the 25th at 8 AM
+
     }
 
     protected $commands = [

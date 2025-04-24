@@ -162,7 +162,7 @@
         </div>
 
         <button type="submit" class="submit-btn">Save Record</button>
-        <a href="{{ route('hr.dashboard') }}" class="inline-block px-6 py-2 mb-4 text-sm font-semibold text-black transition duration-300 ease-in-out bg-gray-600 rounded-md hover:bg-gray-700"><-Back</a>
+        <a href="{{ route('hr.dashboard') }}" class="inline-block px-6 py-2 mb-4 text-sm font-semibold text-white transition duration-300 ease-in-out bg-gray-600 rounded-md hover:bg-gray-700">Cancel</a>
 
     </form>
 </div>

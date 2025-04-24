@@ -59,7 +59,7 @@
         @csrf
         @method('PUT')
 
-        <<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <!-- Employee Dropdown -->
             <div>
                 <label for="employee_id" class="block text-sm font-medium">Employee</label>

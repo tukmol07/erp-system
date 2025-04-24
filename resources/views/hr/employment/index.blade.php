@@ -1,13 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-6xl p-6 mx-auto bg-white rounded shadow">
+<div class="p-4 mx-auto bg-white rounded shadow">
     <h2 class="mb-6 text-2xl font-bold">Employment Records</h2>
 
-    <a href="{{ route('hr.dashboard') }}" class="inline-block px-6 py-2 mb-4 text-sm font-semibold text-black transition duration-300 ease-in-out bg-gray-600 rounded-md font-size hover:bg-gray-700"><-Back</a>
+    <!-- Search and Back Button Row -->
+<div class="flex items-center justify-between mb-4">
+    <!-- Search Form -->
+    <form method="GET" action="{{ route('hr.hr.employment.index') }}" class="flex items-center space-x-4">
+        <label for="search" class="text-gray-700">Search by Name:</label>
+        <input type="text" name="search" id="search" value="{{ request('search') }}"
+               placeholder="Enter employee name"
+               class="px-3 py-1 border rounded shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+
+        <button type="submit" class="px-4 py-1 text-white bg-blue-600 rounded hover:bg-blue-700">
+            Search
+        </button>
+    </form>
+
+    <!-- Back Button -->
+    <a href="{{ route('hr.dashboard') }}"
+       class="px-4 py-2 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-gray-700">
+        ← Back
+    </a>
+</div>
 
 
-    <table class="min-w-full table-auto font-size">
+    <!-- Records Table -->
+    <table class="min-w-full text-sm table-auto">
         <thead>
             <tr class="text-left bg-gray-100">
                 <th class="px-4 py-2">Employee Name</th>
@@ -43,19 +63,25 @@
                 <td class="px-4 py-2">${{ $record->salary }}</td>
                 <td class="px-4 py-2">{{ $record->residence_renewal }} years</td>
                 <td class="w-48 px-4 py-2">
-                    <!-- Edit Button -->
-                    <a href="{{ route('hr.hr.employment.edit', $record->id) }}" class="inline-block px-5 py-2 text-sm font-semibold text-black transition duration-300 ease-in-out bg-blue-600 rounded-md hover:bg-blue-700">Edit</a>
+                    <a href="{{ route('hr.hr.employment.edit', $record->id) }}"
+                       class="inline-block px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">Edit</a>
 
-                    <!-- Delete Button -->
-                    <form action="{{ route('hr.hr.employment.destroy', $record->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                    <form action="{{ route('hr.hr.employment.destroy', $record->id) }}" method="POST"
+                          class="inline-block" onsubmit="return confirm('Are you sure you want to delete this record?');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="px-5 py-2 text-sm font-semibold text-white transition duration-300 ease-in-out bg-red-600 rounded-md hover:bg-red-700">Delete</button>
+                        <button type="submit"
+                                class="px-5 py-2 text-sm font-semibold text-white bg-red-600 rounded-md hover:bg-red-700">Delete</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
+    <!-- Pagination -->
+    <div class="mt-4">
+        {{ $records->links() }}
+    </div>
 </div>
 @endsection

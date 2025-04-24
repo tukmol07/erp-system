@@ -17,11 +17,10 @@
     <style>
 
         .logo {
-            block-size: 200px;
+            block-size: 100px;
             inline-size: auto;
             object-fit: contain;
-            margin-inline-start: 0.5rem;
-            margin-block-end: 10px;
+            margin-block-end: 1rem;
         }
 
 

@@ -37,14 +37,23 @@ class EmploymentRecordController extends Controller
         return redirect()->route('hr.employment.index')->with('success', 'Employment record added.');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $records = EmploymentRecord::all();
+        $query = EmploymentRecord::query();
+
+        // If a search term is provided, filter by employee_name
+        if ($request->has('search') && $request->search) {
+            $query->where('employee_name', 'like', '%' . $request->search . '%');
+        }
+
+        // Paginate results
+        $records = $query->paginate(10)->withQueryString(); // Keep the query string during pagination
         $title = 'Employment Records';
         $department = 'HR';
 
         return view('hr.employment.index', compact('records', 'title', 'department'));
     }
+
 
 
     public function edit($id)

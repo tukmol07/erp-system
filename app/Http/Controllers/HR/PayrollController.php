@@ -9,11 +9,32 @@ use Illuminate\Http\Request;
 
 class PayrollController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $payrolls = Payroll::with('employee')->paginate(10);
-        return view('hr.payroll.index', compact('payrolls'));
+        $query = Payroll::query();
+
+        // Filter by month if provided
+        if ($request->has('month') && $request->month) {
+            $month = ucfirst(strtolower($request->month)); // Ensure proper capitalization like 'January'
+            $query->where('month', $month); // Now comparing as string, e.g., 'January'
+        }
+
+        // Filter by employee name if provided
+        if ($request->has('search') && $request->search) {
+            $query->whereHas('employee', function ($q) use ($request) {
+                $q->where('employee_name', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        // Get payroll records with pagination
+        $payrolls = $query->paginate(10);
+
+        $title = 'Payroll Records';
+        $department = 'HR';
+
+        return view('hr.payroll.index', compact('payrolls', 'title', 'department'));
     }
+
 
     public function create()
     {
@@ -66,7 +87,7 @@ class PayrollController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate input data
+        // Validate input data (no need to validate 'net_salary' here)
         $data = $request->validate([
             'employee_id' => 'required|exists:employment_records,id',
             'month' => 'required|string',
@@ -75,12 +96,19 @@ class PayrollController extends Controller
             'deductions' => 'nullable|numeric',
             'overtime_hours' => 'nullable|numeric',
             'bonus' => 'nullable|numeric',
-            'net_salary' => 'required|numeric',
             'remarks' => 'nullable|string',
         ]);
 
-        // Debugging: Check if the data is valid
-        dd($data);
+        // Set default values if null
+        $data['allowances'] = $data['allowances'] ?? 0;
+        $data['deductions'] = $data['deductions'] ?? 0;
+        $data['bonus'] = $data['bonus'] ?? 0;
+        $data['overtime_hours'] = $data['overtime_hours'] ?? 0;
+
+        // Calculate overtime pay and net salary
+        $data['overtime_rate'] = ($data['basic_salary'] / 173.33) * 1.5;
+        $data['overtime_pay'] = $data['overtime_hours'] * $data['overtime_rate'];
+        $data['net_salary'] = $data['basic_salary'] + $data['allowances'] + $data['bonus'] + $data['overtime_pay'] - $data['deductions'];
 
         // Find the payroll record by ID
         $payroll = Payroll::findOrFail($id);

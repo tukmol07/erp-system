@@ -1,24 +1,40 @@
 <?php $__env->startSection('content'); ?>
-<div class="container p-6 mx-auto">
+<div class="container p-4 mx-auto">
     <div class="p-6 mb-6 bg-white rounded shadow-md">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center justify-between mb-2">
             <div>
                 <h1 class="mb-1 text-3xl font-bold text-gray-800">Payroll Records</h1>
-                <p class="text-gray-600">List of employee payrolls will appear here.</p>
             </div>
 
-            <div class="mb-4">
-                <a href="<?php echo e(route('hr.dashboard')); ?>" class="inline-block px-4 py-2 text-black bg-gray-600 rounded hover:bg-gray-700">
+            <div class="flex mb-4 space-x-4">
+                <a href="<?php echo e(route('hr.dashboard')); ?>" class="inline-block p-2 px-4 text-white bg-gray-600 rounded hover:bg-gray-700">
                     ← Back to HR Dashboard
                 </a>
-            </div>
 
-            <a href="<?php echo e(route('hr.payroll.create')); ?>"
-               class="inline-block px-4 py-2 text-black bg-indigo-600 rounded hover:bg-indigo-700">
-                ➕ Create Payroll
-            </a>
+                <a href="<?php echo e(route('hr.payroll.create')); ?>"
+                   class="inline-block px-4 py-2 text-white bg-indigo-600 rounded hover:bg-indigo-700">
+                    ➕ Create Payroll
+                </a>
+            </div>
         </div>
 
+        <form action="<?php echo e(route('hr.payroll.index')); ?>" method="GET" class="flex items-center space-x-4">
+            <label for="month" class="text-gray-700">Month:</label>
+            <select name="month" id="month" class="px-2 py-1 border rounded">
+                <option value="">Month</option>
+                <?php $__currentLoopData = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($month); ?>" <?php echo e(request('month') == $month ? 'selected' : ''); ?>>
+                        <?php echo e($month); ?>
+
+                    </option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+
+            <label for="search" class="text-gray-700">Employee Name:</label>
+            <input type="text" name="search" id="search" value="<?php echo e(request('search')); ?>" class="px-2 py-1 border rounded" placeholder="Search by name">
+
+            <button type="submit" class="px-2 py-1 text-white bg-blue-600 rounded hover:bg-blue-700">Search</button>
+        </form>
         <?php if(session('success')): ?>
             <div class="p-4 mb-4 text-green-800 bg-green-100 rounded">
                 <?php echo e(session('success')); ?>
@@ -27,7 +43,7 @@
         <?php endif; ?>
 
         <div class="overflow-x-auto">
-            <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200">
+            <table class="min-w-full text-sm bg-white border border-gray-200 divide-y divide-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
                         <th class="px-4 py-2 text-left">No.</th>
@@ -51,19 +67,19 @@
                             <td class="px-4 py-2"><?php echo e($payroll->id); ?></td>
                             <td class="px-4 py-2"><?php echo e($payroll->employee->employee_name); ?></td>
                             <td class="px-4 py-2"><?php echo e($payroll->month); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->basic_salary); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->allowances); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->deductions); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->basic_salary, 2)); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->allowances, 2)); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->deductions, 2)); ?></td>
                             <td class="px-4 py-2"><?php echo e($payroll->overtime_hours); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->overtime_rate); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->overtime_pay); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->bonus); ?></td>
-                            <td class="px-4 py-2"><?php echo e($payroll->net_salary); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->overtime_rate, 2)); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->overtime_pay, 2)); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->bonus, 2)); ?></td>
+                            <td class="px-4 py-2"><?php echo e(number_format($payroll->net_salary, 2)); ?></td>
                             <td class="px-4 py-2"><?php echo e($payroll->remarks); ?></td>
-                            <td class="px-4 py-2">
+                            <td class="flex px-4 py-2 space-x-2">
                                 <a href="<?php echo e(route('hr.payroll.edit', $payroll->id)); ?>"
                                    class="text-indigo-600 hover:underline">Edit</a>
-                                <form action="<?php echo e(route('hr.payroll.destroy', $payroll->id)); ?>" method="POST" class="inline-block ml-2" onsubmit="return confirm('Are you sure?');">
+                                <form action="<?php echo e(route('hr.payroll.destroy', $payroll->id)); ?>" method="POST" class="inline-block" onsubmit="return confirm('Are you sure?');">
                                     <?php echo csrf_field(); ?>
                                     <?php echo method_field('DELETE'); ?>
                                     <button type="submit" class="text-red-600 hover:underline">Delete</button>
@@ -72,13 +88,14 @@
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr>
-                            <td colspan="6" class="px-4 py-4 text-center text-gray-500">No payroll records found.</td>
+                            <td colspan="13" class="px-4 py-4 text-center text-gray-500">No payroll records found.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
             </table>
         </div>
 
+        <!-- Pagination Links -->
         <div class="mt-4">
             <?php echo e($payrolls->links()); ?>
 
