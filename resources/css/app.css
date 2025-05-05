@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add this block to your app.css or custom CSS file */
+
+.btn {
+    @apply px-3 py-1 text-white rounded transition-colors duration-200;
+}
+
+.btn-green {
+    @apply bg-green-600 hover:bg-green-700;
+}
+
+.btn-small {
+    @apply px-2 py-1;
+}

@@ -12,15 +12,15 @@
     <!-- Action Buttons -->
     <div class="flex flex-wrap gap-4">
         <a href="{{ route('hr.employment.create') }}"
-           class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-indigo-500 rounded-lg shadow hover:bg-indigo-600">
+           class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-green-600 rounded-lg shadow hover:bg-green-700">
             ➕ Input Employment Record
         </a>
         <a href="{{ route('hr.employment.index') }}"
-           class="inline-block px-6 py-3 font-semibold text-black transition duration-200 rounded-lg shadow bg-emerald-500 hover:bg-emerald-600">
+           class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-green-600 rounded-lg shadow hover:bg-green-700">
             📄 View Employment Records
         </a>
         <a href="{{ route('hr.payroll.index') }}"
-            class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-yellow-400 rounded-lg shadow hover:bg-yellow-500">
+            class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-green-600 rounded-lg shadow hover:bg-green-700">
             💰 Payroll System
         </a>
     </div>

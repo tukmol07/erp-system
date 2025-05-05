@@ -2,156 +2,84 @@
 
 @section('content')
 
-<style>
-    .form-container {
-        max-inline-size: 900px;
-        margin: 2rem auto;
-        padding: 2rem;
-        background: #fff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 12px;
-    }
-
-    .form-title {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #333;
-        margin-block-end: 1.5rem;
-    }
-
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .form-group label {
-        margin-block-end: 0.5rem;
-        font-weight: 600;
-        color: #444;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-size: 1rem;
-    }
-
-    .form-group textarea {
-        resize: vertical;
-        min-block-size: 80px;
-    }
-
-    .submit-btn {
-        margin-block-start: 2rem;
-        padding: 0.75rem 1.5rem;
-        background-color: #007BFF;
-        color: #fff;
-        font-weight: bold;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .submit-btn:hover {
-        background-color: #0056b3;
-    }
-
-    @media (max-inline-size: 768px) {
-        .form-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
-<div class="form-container">
-    <h2 class="form-title">Add Employment Record</h2>
+<div class="max-w-5xl p-6 mx-auto mt-8 bg-white shadow-lg rounded-x">
+    <h2 class="mb-6 text-2xl font-bold text-gray-800">Add Employment Record</h2>
 
     <form action="{{ route('hr.employment.store') }}" method="POST">
         @csrf
 
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Employee Name</label>
-                <input type="text" name="employee_name" required>
+        <div class="grid grid-cols-1 gap-6 text-sm md:grid-cols-2">
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Employee Name</label>
+                <input type="text" name="employee_name" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Employee Number</label>
-                <input type="text" name="employee_number" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Employee Number</label>
+                <input type="text" name="employee_number" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Visa Number</label>
-                <input type="text" name="visa_number" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Visa Number</label>
+                <input type="text" name="visa_number" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Category Resident</label>
-                <input type="text" name="category_resident" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Category Resident</label>
+                <input type="text" name="category_resident" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Nationality</label>
-                <input type="text" name="nationality" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Nationality</label>
+                <input type="text" name="nationality" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Date Arrival</label>
-                <input type="date" name="date_arrival" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Date Arrival</label>
+                <input type="date" name="date_arrival" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Date Hired</label>
-                <input type="date" name="date_hired" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Date Hired</label>
+                <input type="date" name="date_hired" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Contract Expiry Date</label>
-                <input type="date" name="contract_expiry_date" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Contract Expiry Date</label>
+                <input type="date" name="contract_expiry_date" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-
-            <div class="form-group">
-                <label>Kiwa Contract Number</label>
-                <input type="text" name="kiwa_contract_number" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Kiwa Contract Number</label>
+                <input type="text" name="kiwa_contract_number" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Salary</label>
-                <input type="number" name="salary" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Salary</label>
+                <input type="number" name="salary" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
             </div>
 
-            <div class="form-group">
-                <label>Educational Background</label>
-                <textarea name="educational_background"></textarea>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Educational Background</label>
+                <textarea name="educational_background" class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500 resize-y min-h-[80px]"></textarea>
             </div>
 
-            <div class="form-group">
-                <label>Skills</label>
-                <textarea name="skills"></textarea>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Skills</label>
+                <textarea name="skills" class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500 resize-y min-h-[80px]"></textarea>
             </div>
 
-            <div class="form-group">
-                <label>Ticket Provided</label>
-                <select name="ticket_provided" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Ticket Provided</label>
+                <select name="ticket_provided" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
             </div>
 
-            <div class="form-group">
-                <label>Renewal of Residence</label>
-                <select name="residence_renewal" required>
+            <div class="flex flex-col">
+                <label class="mb-1 font-semibold text-gray-700">Renewal of Residence</label>
+                <select name="residence_renewal" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
                     <option value="2">2 Years</option>
                     <option value="4">4 Years</option>
                     <option value="6">6 Years</option>
@@ -161,9 +89,14 @@
             </div>
         </div>
 
-        <button type="submit" class="submit-btn">Save Record</button>
-        <a href="{{ route('hr.dashboard') }}" class="inline-block px-6 py-2 mb-4 text-sm font-semibold text-white transition duration-300 ease-in-out bg-gray-600 rounded-md hover:bg-gray-700">Cancel</a>
-
+        <div class="flex flex-wrap items-center gap-4 mt-8 text-sm">
+            <button type="submit" class="px-3 py-1 font-bold text-white transition duration-200 bg-green-600 rounded-md hover:bg-green-700">
+                Save Record
+            </button>
+            <a href="{{ route('hr.dashboard') }}" class="px-3 py-1 font-semibold text-white transition duration-200 bg-gray-600 rounded-md hover:bg-red-700">
+                Cancel
+            </a>
+        </div>
     </form>
 </div>
 

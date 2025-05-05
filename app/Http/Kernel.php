@@ -2,15 +2,30 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RoleHR;
+use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\RoleCRM;
+use App\Http\Middleware\RoleUser;
+use App\Http\Middleware\RoleSales;
+use App\Http\Middleware\RoleFinance;
+use App\Http\Middleware\RolePlanning;
+use App\Http\Middleware\RoleInventory;
+use App\Http\Middleware\RoleMarketing;
+use App\Http\Middleware\RoleReporting;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Middleware\RoleProduction;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Schedule;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Middleware\HandleCors;
-use Illuminate\Auth\Middleware\Authenticate as MiddlewareAuthenticate;
 use Illuminate\Http\Middleware\TrustProxies;
 use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Http\Middleware\SetCacheHeaders;
 use Illuminate\Session\Middleware\StartSession;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+
+// Custom middleware
 use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Routing\Middleware\ValidateSignature;
@@ -23,22 +38,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
+use Illuminate\Auth\Middleware\Authenticate as MiddlewareAuthenticate;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
-
-// Custom middleware
-use App\Http\Middleware\RoleHR;
-use App\Http\Middleware\RoleCRM;
-use App\Http\Middleware\RoleUser;
-use App\Http\Middleware\RoleSales;
-use App\Http\Middleware\RoleFinance;
-use App\Http\Middleware\RolePlanning;
-use App\Http\Middleware\RoleInventory;
-use App\Http\Middleware\RoleMarketing;
-use App\Http\Middleware\RoleReporting;
-use App\Http\Middleware\RoleProduction;
-use App\Http\Middleware\IsAdmin;
-use App\Http\Middleware\RoleMiddleware;
-use App\Http\Middleware\RedirectIfAuthenticated;
 
 class Kernel extends HttpKernel
 {
@@ -89,6 +90,9 @@ class Kernel extends HttpKernel
         'role.marketing' => RoleMarketing::class,
         'role.finance' => RoleFinance::class,
         'role.user' => RoleUser::class,
+        'admin' => AdminMiddleware::class,  // Add this line
+
+
 
         // Admin middleware
         'is_admin' => IsAdmin::class,

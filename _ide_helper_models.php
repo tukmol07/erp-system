@@ -16,6 +16,27 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Item> $items
+ * @property-read int|null $items_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereUpdatedAt($value)
+ */
+	class Category extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $employee_name
  * @property string $employee_number
  * @property string $visa_number
@@ -63,6 +84,43 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $serial_number
+ * @property string $name
+ * @property string $sku
+ * @property string|null $description
+ * @property int|null $category_id
+ * @property int|null $supplier_id
+ * @property int $quantity
+ * @property int $min_stock
+ * @property \Illuminate\Support\Carbon|null $last_purchase_date
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Category|null $category
+ * @property-read \App\Models\Supplier|null $supplier
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereLastPurchaseDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereMinStock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereQuantity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereSerialNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereSku($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereSupplierId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Item whereUpdatedAt($value)
+ */
+	class Item extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property int $employee_id
  * @property string $month
  * @property int $basic_salary
@@ -103,12 +161,62 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Role whereUpdatedAt($value)
+ */
+	class Role extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $company_name
+ * @property string $address
+ * @property string $email
+ * @property string $contact_person
+ * @property string $contact_number
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Item> $items
+ * @property-read int|null $items_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereCompanyName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereContactNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereContactPerson($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Supplier whereUpdatedAt($value)
+ */
+	class Supplier extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property int|null $department_id
  * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
- * @property string $role
+ * @property \App\Models\Role|null $role
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at

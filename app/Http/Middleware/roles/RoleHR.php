@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HR
+class RoleHR
 {
     public function handle(Request $request, Closure $next)
     {

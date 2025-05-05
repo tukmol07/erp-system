@@ -106,9 +106,9 @@
             <textarea name="remarks" rows="3" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"><?php echo e(old('remarks', $payroll->remarks)); ?></textarea>
         </div>
 
-        <div class="flex justify-between gap-4 mt-6">
-            <a href="<?php echo e(route('hr.payroll.index')); ?>" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Back</a>
-            <button type="submit" class="px-4 py-2 text-black bg-indigo-600 rounded hover:bg-indigo-700">Update</button>
+        <div class="flex justify-between gap-4 mt-6 text-sm">
+            <a href="<?php echo e(route('hr.payroll.index')); ?>" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-red-700">Back</a>
+            <button type="submit" class="px-3 py-1 text-white bg-green-600 rounded hover:bg-green-700">Update</button>
         </div>
     </div>
 </form>

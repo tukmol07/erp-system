@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <img src="<?php echo e(asset('images/logo2.png')); ?>" class="block object-contain w-auto h-8">
+                    <img src="<?php echo e(asset('images/smart.png')); ?>" width="200" height="auto">
                 </div>
 
                 <!-- Navigation Links -->
@@ -40,7 +40,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['align' => 'right','width' => '48']); ?>
                          <?php $__env->slot('trigger', null, []); ?> 
-                            <button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
+                            <button class="inline-flex items-center px-3 py-2 leading-4 text-black transition duration-150 ease-in-out bg-white border border-green-600 rounded-md font-small text-l hover:text-green-700 focus:outline-none">
                                 <div><?php echo e(Auth::user()->name); ?></div>
 
                                 <div class="ms-1">
@@ -52,30 +52,6 @@
                          <?php $__env->endSlot(); ?>
 
                          <?php $__env->slot('content', null, []); ?> 
-                            <?php if (isset($component)) { $__componentOriginal68cb1971a2b92c9735f83359058f7108 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal68cb1971a2b92c9735f83359058f7108 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dropdown-link','data' => ['href' => route('profile.edit')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('dropdown-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('profile.edit'))]); ?>
-                                <?php echo e(__('Profile')); ?>
-
-                             <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal68cb1971a2b92c9735f83359058f7108)): ?>
-<?php $attributes = $__attributesOriginal68cb1971a2b92c9735f83359058f7108; ?>
-<?php unset($__attributesOriginal68cb1971a2b92c9735f83359058f7108); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal68cb1971a2b92c9735f83359058f7108)): ?>
-<?php $component = $__componentOriginal68cb1971a2b92c9735f83359058f7108; ?>
-<?php unset($__componentOriginal68cb1971a2b92c9735f83359058f7108); ?>
-<?php endif; ?>
-
-                            <!-- Authentication -->
                             <form method="POST" action="<?php echo e(route('logout')); ?>">
                                 <?php echo csrf_field(); ?>
 

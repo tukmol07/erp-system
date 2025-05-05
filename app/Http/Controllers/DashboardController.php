@@ -34,6 +34,8 @@ class DashboardController extends Controller
                 return redirect('/finance');
             case 'User':
                 return redirect('/user');
+            case 'admin':
+                return redirect('/admin');
             default:
                 return redirect('/login');
         }

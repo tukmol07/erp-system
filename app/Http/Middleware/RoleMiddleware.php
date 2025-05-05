@@ -16,10 +16,9 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!in_array(auth()->user()->role, $roles)) {
-            abort(403, 'Unauthorized.');
+        if (auth()->check() && auth()->user()->role !== 'admin') {
+            return redirect()->route('login');  // Redirect to login if not an admin
         }
-
 
         return $next($request);
     }

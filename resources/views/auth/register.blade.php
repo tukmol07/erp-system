@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <x-guest-layout>
     <form method="POST" action="{{ route('admin.register') }}">
         @csrf
@@ -59,12 +63,14 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('admin.dashboard') }}">
-                <-Back
+            <a class="px-3 py-1 text-sm text-white bg-gray-600 rounded-md hover:bg-red-700" href="{{ route('admin.dashboard') }}">
+                Back
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button class="px-3 py-1 text-sm ms-4">
+                Add User
             </x-primary-button>
         </div>
     </form>
 </x-guest-layout>
+@endsection
