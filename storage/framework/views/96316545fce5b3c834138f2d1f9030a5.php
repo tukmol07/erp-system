@@ -65,7 +65,7 @@
                     <?php $__empty_1 = true; $__currentLoopData = $payrolls; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $payroll): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <tr>
                             <td class="px-3 py-1"><?php echo e($payroll->id); ?></td>
-                            <td class="px-3 py-1"><?php echo e($payroll->employee->employee_name); ?></td>
+                            <td class="px-3 py-1"><?php echo e(optional($payroll->employee)->employee_name ?? 'N/A'); ?></td>
                             <td class="px-3 py-1"><?php echo e($payroll->month); ?></td>
                             <td class="px-3 py-1"><?php echo e(number_format($payroll->basic_salary, 2)); ?></td>
                             <td class="px-3 py-1"><?php echo e(number_format($payroll->allowances, 2)); ?></td>

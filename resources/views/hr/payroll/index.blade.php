@@ -65,7 +65,7 @@
                     @forelse($payrolls as $payroll)
                         <tr>
                             <td class="px-3 py-1">{{ $payroll->id }}</td>
-                            <td class="px-3 py-1">{{ $payroll->employee->employee_name }}</td>
+                            <td class="px-3 py-1">{{ optional($payroll->employee)->employee_name ?? 'N/A' }}</td>
                             <td class="px-3 py-1">{{ $payroll->month }}</td>
                             <td class="px-3 py-1">{{ number_format($payroll->basic_salary, 2) }}</td>
                             <td class="px-3 py-1">{{ number_format($payroll->allowances, 2) }}</td>
