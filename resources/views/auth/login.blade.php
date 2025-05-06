@@ -37,7 +37,7 @@
                     <!-- Remember Me -->
                     <div class="block mt-10">
                         <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox" class="text-green-600 border-green-300 rounded shadow-sm focus:ring-green-500" name="remember">
+                            <input id="remember_me" type="checkbox" class="text-indigo-600 rounded shadow-sm border-idigo-300 focus:ring-indigo-500" name="remember">
                             <span class="text-sm text-black ms-2 ">{{ __('Remember me') }}</span>
                         </label>
                     </div>
