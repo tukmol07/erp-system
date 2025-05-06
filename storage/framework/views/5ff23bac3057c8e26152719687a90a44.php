@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
 <div class="max-w-3xl p-6 mx-auto text-sm bg-white rounded shadow-md">
-    <h1 class="mb-6 text-2xl font-bold text-gray-800">➕ Add New Item</h1>
+    <h1 class="inline-block mb-6 text-2xl font-bold text-gray-800">➕ Add New Item</h1>
 
     <form method="POST" action="<?php echo e(route('inventory.item.store')); ?>">
         <?php echo csrf_field(); ?>
@@ -78,9 +78,9 @@
         <!-- Buttons -->
         <div class="flex justify-end space-x-2">
             <a href="<?php echo e(route('inventory.dashboard')); ?>"
-               class="px-4 py-2 text-white bg-gray-600 rounded-md hover:bg-gray-700">Cancel</a>
+               class="inline-block px-4 py-2 text-white bg-gray-600 rounded-md hover:bg-gray-700">Cancel</a>
             <button type="submit"
-             class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Save</button>
+             class="inline-block px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Save</button>
         </div>
     </form>
 </div>

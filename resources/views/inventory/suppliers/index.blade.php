@@ -4,7 +4,7 @@
 <div class="container p-6 mx-auto text-sm">
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-3xl font-bold text-gray-800">Suppliers</h1>
-        <a href="{{ route('inventory.suppliers.create') }}" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
+        <a href="{{ route('inventory.suppliers.create') }}" class="inline-block px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
             ➕ Add Supplier
         </a>
         <a href="{{ route('inventory.dashboard') }}" class="inline-block px-3 py-1 text-sm text-white bg-gray-600 rounded hover:bg-gray-700">
@@ -40,12 +40,12 @@
                             <form action="{{ route('inventory.suppliers.destroy', $supplier->id) }}" method="POST" onsubmit="return confirm('Delete this supplier?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="px-2 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Delete</button>
+                                <button type="submit" class="inline-block px-2 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Delete</button>
                             </form>
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="5" class="p-4 text-center text-gray-500">No suppliers found.</td></tr>
+                    <tr><td colspan="5" class="inline-block p-4 text-center text-gray-500 ">No suppliers found.</td></tr>
                 @endforelse
             </tbody>
         </table>
