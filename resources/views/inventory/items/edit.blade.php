@@ -16,7 +16,7 @@
                 Cancel
             </a>
             <button type="submit"
-                    class="px-3 py-1 text-white bg-green-600 rounded hover:bg-green-700">
+                    class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">
                 💾 Update Item
             </button>
         </div>

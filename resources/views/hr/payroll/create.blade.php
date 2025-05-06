@@ -57,7 +57,7 @@
 
         <div class="flex justify-end gap-4 mt-6 text-sm">
             <a href="{{ route('hr.payroll.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-red-700">Cancel</a>
-            <button type="submit" class="px-3 py-1 text-white bg-green-600 rounded hover:bg-green-700">Save</button>
+            <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">Save</button>
         </div>
     </form>
 </div>

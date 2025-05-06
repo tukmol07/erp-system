@@ -14,7 +14,7 @@
                 </a>
 
                 <a href="{{ route('hr.payroll.create') }}"
-                   class="inline-block px-3 py-1 text-white bg-green-600 rounded hover:bg-green-700">
+                   class="inline-block px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">
                     ➕ Create Payroll
                 </a>
             </div>
@@ -34,7 +34,7 @@
             <label for="search" class="text-gray-700">Employee Name:</label>
             <input type="text" name="search" id="search" value="{{ request('search') }}" class="px-2 py-1 border rounded" placeholder="Search by name">
 
-            <button type="submit" class="px-2 py-1 text-white bg-green-600 rounded hover:bg-green-700">Search</button>
+            <button type="submit" class="px-2 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">Search</button>
         </form>
         @if(session('success'))
             <div class="p-4 mb-4 text-green-800 bg-green-100 rounded">
@@ -78,7 +78,7 @@
                             <td class="px-3 py-1">{{ $payroll->remarks }}</td>
                             <td class="flex px-3 py-1 space-x-2">
                                 <a href="{{ route('hr.payroll.edit', $payroll->id) }}"
-                                    class="inline-block px-3 py-1 text-sm font-semibold text-white bg-green-600 rounded-md hover:bg-green-700">Edit</a>
+                                    class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-green-700">Edit</a>
 
                                 <form action="{{ route('hr.payroll.destroy', $payroll->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure?');">
                                     @csrf

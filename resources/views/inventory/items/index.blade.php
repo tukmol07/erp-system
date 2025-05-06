@@ -16,5 +16,5 @@
         <option value="out_of_stock" {{ request('filter') == 'out_of_stock' ? 'selected' : '' }}>Out of Stock</option>
     </select>
 
-    <button type="submit" class="p-2 text-white bg-green-600 rounded hover:bg-green-700">Filter</button>
+    <button type="submit" class="p-2 text-white bg-indigo-600 rounded hover:bg-green-700">Filter</button>
 </form>

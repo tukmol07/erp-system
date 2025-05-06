@@ -82,7 +82,7 @@
             <a href="{{ route('inventory.dashboard') }}"
                class="px-4 py-2 text-white bg-gray-600 rounded-md hover:bg-red-700">Cancel</a>
             <button type="submit"
-             class="px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700">Save</button>
+             class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-green-700">Save</button>
         </div>
     </form>
 </div>

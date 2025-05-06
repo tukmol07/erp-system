@@ -1,5 +1,5 @@
 
-<form action="{{ route('suppliers.store') }}" method="POST" class="p-4 mb-4 bg-white rounded shadow">
+<form action="{{ route('inventory.suppliers.store') }}" method="POST" class="p-4 mb-4 bg-white rounded shadow">
     @csrf
     <h2 class="mb-2 text-lg font-semibold">Add Supplier</h2>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">

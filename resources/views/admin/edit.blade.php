@@ -39,7 +39,7 @@
 
         <div class="flex justify-end gap-3">
             <a href="{{ route('admin.dashboard') }}" class="px-4 py-2 text-sm text-white bg-gray-600 rounded hover:bg-red-700">Cancel</a>
-            <button type="submit" class="px-4 py-2 text-sm text-white bg-green-600 rounded hover:bg-green-700">Update</button>
+            <button type="submit" class="px-4 py-2 text-sm text-white bg-indigo-600 rounded hover:bg-green-700">Update</button>
         </div>
     </form>
 </div>

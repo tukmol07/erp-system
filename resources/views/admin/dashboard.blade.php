@@ -41,7 +41,7 @@
                         <td class="px-4 py-2">{{ $user->created_at->format('Y-m-d') }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="{{ route('admin.edit', $user->id) }}"
-                                class="inline-block px-3 py-1 text-sm font-semibold text-white bg-green-600 rounded-md hover:bg-green-700">Edit</a>
+                                class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-green-700">Edit</a>
 
                              <form action="{{ route('admin.destroy', $user->id) }}" method="POST"
                                    class="inline-block" onsubmit="return confirm('Are you sure you want to delete this record?');">

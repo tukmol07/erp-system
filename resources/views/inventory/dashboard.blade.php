@@ -9,15 +9,15 @@
     <h1 class="text-3xl font-bold text-gray-800">Inventory Dashboard</h1>
 
     <div class="flex space-x-4">
-        <a href="{{ route('inventory.items.create') }}" class="px-2 py-1 text-white bg-green-600 rounded hover:bg-green-700">
+        <a href="{{ route('inventory.items.create') }}" class="px-2 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">
             ➕ Add New Item
         </a>
         <a href="{{ route('inventory.categories.index') }}"
-           class="px-2 py-1 text-white bg-green-600 rounded hover:bg-green-800">
+           class="px-2 py-1 text-white bg-indigo-600 rounded hover:bg-green-800">
             📂 View Categories
         </a>
         <a href="{{ route('inventory.suppliers.index') }}"
-           class="px-2 py-1 text-white bg-green-600 rounded hover:bg-green-700">
+           class="px-2 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">
             🧾 View Suppliers
         </a>
     </div>
@@ -44,7 +44,7 @@
             <option value="out_of_stock" {{ request('filter') == 'out_of_stock' ? 'selected' : '' }}>Out of Stock</option>
         </select>
 
-        <button type="submit" class="px-3 py-1 text-white bg-green-600 rounded hover:bg-green-700">
+        <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">
             🔍 Search
         </button>
     </form>
@@ -79,7 +79,7 @@
                     <td class="p-3">{{ $item->supplier->company_name ?? '-' }}</td>
                     <td class="p-3">{{ $item->last_purchase_date ? $item->last_purchase_date->format('Y-m-d') : '-' }}</td>
                     <td class="flex p-3 space-x-2">
-                        <a href="{{ route('inventory.items.edit', $item->id) }}" class="px-3 py-1 text-white bg-green-600 rounded hover:bg-green-700">Edit</a>
+                        <a href="{{ route('inventory.items.edit', $item->id) }}" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">Edit</a>
                         <form action="{{ route('inventory.items.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Delete this item?')">
                             @csrf
                             @method('DELETE')
