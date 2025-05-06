@@ -88,10 +88,10 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-4 mt-8 text-sm">
-            <button type="submit" class="px-3 py-1 font-bold text-white transition duration-200 bg-green-600 rounded-md hover:bg-green-700">
+            <button type="submit" class="px-3 py-1 font-bold text-white transition duration-200 bg-indigo-600 rounded-md hover:bg-indigo-700">
                 Save Record
             </button>
-            <a href="<?php echo e(route('hr.dashboard')); ?>" class="px-3 py-1 font-semibold text-white transition duration-200 bg-gray-600 rounded-md hover:bg-red-700">
+            <a href="<?php echo e(route('hr.dashboard')); ?>" class="px-3 py-1 font-semibold text-white transition duration-200 bg-gray-600 rounded-md hover:bg-gray-700">
                 Cancel
             </a>
         </div>

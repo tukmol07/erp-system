@@ -30,7 +30,7 @@
                     <!-- Profile Dropdown -->
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 leading-4 text-black transition duration-150 ease-in-out bg-white border border-green-600 rounded-md font-small text-l hover:text-green-700 focus:outline-none">
+                            <button class="inline-flex items-center px-3 py-2 leading-4 text-black transition duration-150 ease-in-out bg-white border border-black rounded-md font-small text-l hover:text-gray-700 focus:outline-none">
                                 <div>{{ Auth::user()->name }}</div>
 
                                 <div class="ms-1">

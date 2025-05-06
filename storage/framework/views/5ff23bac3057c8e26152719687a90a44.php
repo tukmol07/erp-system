@@ -78,9 +78,9 @@
         <!-- Buttons -->
         <div class="flex justify-end space-x-2">
             <a href="<?php echo e(route('inventory.dashboard')); ?>"
-               class="px-4 py-2 text-white bg-gray-600 rounded-md hover:bg-red-700">Cancel</a>
+               class="px-4 py-2 text-white bg-gray-600 rounded-md hover:bg-gray-700">Cancel</a>
             <button type="submit"
-             class="px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700">Save</button>
+             class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Save</button>
         </div>
     </form>
 </div>

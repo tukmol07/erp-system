@@ -44,7 +44,7 @@
 
                     <!-- Submit Button -->
                     <div class="flex items-center justify-end mt-4">
-                        <x-primary-button class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-green-800">
+                        <x-primary-button class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
                             {{ __('Log in') }}
                         </x-primary-button>
                     </div>

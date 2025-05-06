@@ -29,7 +29,7 @@
             </button>
             <a
                 href="{{ route('inventory.categories.index') }}"
-                class="px-3 py-1 text-white bg-gray-600 rounded-md hover:bg-red-700"
+                class="px-3 py-1 text-white bg-gray-600 rounded-md hover:bg-gray-700"
             >
                 Cancel
             </a>

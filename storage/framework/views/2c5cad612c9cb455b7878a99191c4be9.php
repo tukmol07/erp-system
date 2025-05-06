@@ -9,15 +9,15 @@
     <!-- Action Buttons -->
     <div class="flex flex-wrap gap-4">
         <a href="<?php echo e(route('hr.employment.create')); ?>"
-           class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-green-600 rounded-lg shadow hover:bg-green-700">
+           class="inline-block px-6 py-3 font-semibold text-white transition duration-200 bg-indigo-600 rounded-lg shadow hover:bg-indigo-700">
             ➕ Input Employment Record
         </a>
         <a href="<?php echo e(route('hr.employment.index')); ?>"
-           class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-green-600 rounded-lg shadow hover:bg-green-700">
+           class="inline-block px-6 py-3 font-semibold text-white transition duration-200 bg-indigo-600 rounded-lg shadow hover:bg-indigo-700">
             📄 View Employment Records
         </a>
         <a href="<?php echo e(route('hr.payroll.index')); ?>"
-            class="inline-block px-6 py-3 font-semibold text-black transition duration-200 bg-green-600 rounded-lg shadow hover:bg-green-700">
+            class="inline-block px-6 py-3 font-semibold text-white transition duration-200 bg-indigo-600 rounded-lg shadow hover:bg-indigo-700">
             💰 Payroll System
         </a>
     </div>

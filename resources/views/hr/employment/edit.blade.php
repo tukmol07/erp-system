@@ -104,8 +104,8 @@
             </div>
 
             <div class="flex items-center justify-between mt-8 text-sm">
-                <a href="{{ route('hr.hr.employment.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-red-700">Back to list</a>
-                <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">Update</button>
+                <a href="{{ route('hr.hr.employment.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Back to list</a>
+                <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">Update</button>
             </div>
         </form>
     </div>

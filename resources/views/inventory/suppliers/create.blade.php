@@ -50,9 +50,9 @@
 
         <div class="flex justify-end mt-6 space-x-4">
             <a href="{{ route('inventory.suppliers.index') }}"
-               class="px-3 py-1 text-sm text-white bg-gray-600 rounded hover:bg-red-700">Cancel</a>
+               class="px-3 py-1 text-sm text-white bg-gray-600 rounded hover:bg-gray-700">Cancel</a>
             <button type="submit"
-                    class="px-3 py-1 text-sm text-white bg-indigo-600 rounded hover:bg-green-700">Save</button>
+                    class="px-3 py-1 text-sm text-white bg-indigo-600 rounded hover:bg-indigo-700">Save</button>
         </div>
     </form>
 </div>

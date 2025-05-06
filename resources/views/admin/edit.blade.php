@@ -5,7 +5,7 @@
     <h2 class="mb-6 text-xl font-semibold text-gray-700">Edit User</h2>
 
     @if(session('success'))
-        <div class="p-2 mb-4 text-green-700 bg-green-100 border border-green-300 rounded">
+        <div class="p-2 mb-4 text-indigo-700 bg-green-100 border border-indigo-300 rounded">
             {{ session('success') }}
         </div>
     @endif
@@ -38,8 +38,8 @@
 
 
         <div class="flex justify-end gap-3">
-            <a href="{{ route('admin.dashboard') }}" class="px-4 py-2 text-sm text-white bg-gray-600 rounded hover:bg-red-700">Cancel</a>
-            <button type="submit" class="px-4 py-2 text-sm text-white bg-indigo-600 rounded hover:bg-green-700">Update</button>
+            <a href="{{ route('admin.dashboard') }}" class="px-4 py-2 text-sm text-white bg-gray-600 rounded hover:bg-gray-700">Cancel</a>
+            <button type="submit" class="px-4 py-2 text-sm text-white bg-indigo-600 rounded hover:bg-indigo-700">Update</button>
         </div>
     </form>
 </div>

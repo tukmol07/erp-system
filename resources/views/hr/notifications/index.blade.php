@@ -17,7 +17,7 @@
             <span>{{ $notification->data['message'] }}</span>
             <form action="{{ route('hr.hr.notifications.read', $notification->id) }}" method="POST">
                 @csrf
-                <button style="background-color: #16a34a; color: white; padding: 0.25rem 0.75rem;" class="text-sm rounded hover:bg-green-700">
+                <button class="text-sm text-white bg-indigo-600 rounded hover:bg-indigo-700">
                     Mark as Read
                 </button>
                             </form>

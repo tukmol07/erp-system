@@ -14,7 +14,7 @@
 
         <div class="md:col-span-3">
             <button type="submit"
-                    class="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-700">
+                    class="px-4 py-2 text-white bg-indigo-600 rounded hover:bg-indigo-700">
                 Add Supplier
             </button>
         </div>

@@ -51,11 +51,11 @@
 
         <div class="flex mt-6 space-x-4 text-sm">
             <a href="{{ route('inventory.suppliers.index') }}"
-               class="px-3 py-1 text-white bg-gray-600 rounded-md hover:bg-red-700">
+               class="px-3 py-1 text-white bg-gray-600 rounded-md hover:bg-gray-700">
                 Cancel
             </a>
             <button type="submit"
-                    class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">
+                    class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
                 💾 Update Supplier
             </button>
         </div>

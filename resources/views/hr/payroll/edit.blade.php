@@ -109,8 +109,8 @@
         </div>
 
         <div class="flex justify-between gap-4 mt-6 text-sm">
-            <a href="{{ route('hr.payroll.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-red-700">Back</a>
-            <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">Update</button>
+            <a href="{{ route('hr.payroll.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Back</a>
+            <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">Update</button>
         </div>
     </div>
 </form>

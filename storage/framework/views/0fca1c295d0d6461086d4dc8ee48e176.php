@@ -2,7 +2,7 @@
 
     
     <?php if(session('success')): ?>
-        <div class="p-3 mb-4 text-green-800 bg-green-100 border border-green-300 rounded">
+        <div class="p-3 mb-4 text-indigo-800 bg-indigo-100 border border-indigo-300 rounded">
             <?php echo e(session('success')); ?>
 
         </div>
@@ -12,7 +12,7 @@
     <div class="mt-4 mb-6">
         <a
             href="<?php echo e(route('admin.register')); ?>"
-            class="px-3 py-1 text-white bg-green-600 rounded-md hover:bg-green-700">
+            class="px-3 py-1 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
             ➕ Add User
         </a>
     </div>
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr class="border-t hover:bg-green-50">
+                    <tr class="border-t hover:bg-gray-100">
                         <td class="px-4 py-2"><?php echo e($index + 1); ?></td>
                         <td class="px-4 py-2"><?php echo e($user->name); ?></td>
                         <td class="px-4 py-2"><?php echo e($user->email); ?></td>
@@ -40,14 +40,14 @@
                         <td class="px-4 py-2"><?php echo e($user->created_at->format('Y-m-d')); ?></td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="<?php echo e(route('admin.edit', $user->id)); ?>"
-                                class="inline-block px-3 py-1 text-sm font-semibold text-white bg-green-600 rounded-md hover:bg-green-700">Edit</a>
+                                class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Edit</a>
 
                              <form action="<?php echo e(route('admin.destroy', $user->id)); ?>" method="POST"
                                    class="inline-block" onsubmit="return confirm('Are you sure you want to delete this record?');">
                                  <?php echo csrf_field(); ?>
                                  <?php echo method_field('DELETE'); ?>
                                  <button type="submit"
-                                         class="px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-red-700">Delete</button>
+                                         class="px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-gray-700">Delete</button>
                              </form>
                         </td>
                     </tr>

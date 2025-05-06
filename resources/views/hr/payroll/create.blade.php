@@ -21,7 +21,7 @@
 
             <div>
                 <label for="month" class="block text-sm font-medium">Month</label>
-                <input type="text" name="month" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="e.g. April 2025">
+                <input type="text" name="month" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="e.g. April 2025">
             </div>
 
             <div>
@@ -56,8 +56,8 @@
         </div>
 
         <div class="flex justify-end gap-4 mt-6 text-sm">
-            <a href="{{ route('hr.payroll.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-red-700">Cancel</a>
-            <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-green-700">Save</button>
+            <a href="{{ route('hr.payroll.index') }}" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Cancel</a>
+            <button type="submit" class="px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">Save</button>
         </div>
     </form>
 </div>
