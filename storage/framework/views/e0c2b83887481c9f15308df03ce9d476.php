@@ -3,7 +3,7 @@
     <h1 class="mb-6 text-2xl font-bold text-gray-800">➕ Add Supplier</h1>
 
     <?php if(session('success')): ?>
-        <div class="p-4 mb-4 text-green-700 bg-green-100 border border-green-300 rounded">
+        <div class="p-4 mb-4 text-indigo-700 bg-green-100 border border-indigo-300 rounded">
             <?php echo e(session('success')); ?>
 
         </div>
@@ -49,9 +49,9 @@
 
         <div class="flex justify-end mt-6 space-x-4">
             <a href="<?php echo e(route('inventory.suppliers.index')); ?>"
-               class="px-3 py-1 text-sm text-white bg-gray-600 rounded hover:bg-red-700">Cancel</a>
+               class="px-3 py-1 text-sm text-white bg-gray-600 rounded hover:bg-gray-700">Cancel</a>
             <button type="submit"
-                    class="px-3 py-1 text-sm text-white bg-green-600 rounded hover:bg-green-700">Save</button>
+                    class="px-3 py-1 text-sm text-white bg-indigo-600 rounded hover:bg-indigo-700">Save</button>
         </div>
     </form>
 </div>
