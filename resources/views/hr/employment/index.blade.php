@@ -41,6 +41,8 @@
                 <th class="px-3 py-1">Skills</th>
                 <th class="px-3 py-1">Ticket Provide</th>
                 <th class="px-3 py-1">Date Hired</th>
+                <th class="px-3 py-1">Contract Expiration</th>
+
                 <th class="px-3 py-1">Salary</th>
                 <th class="px-3 py-1">Residence Renewal</th>
                 <th class="px-3 py-1">Actions</th>
@@ -60,6 +62,7 @@
                 <td class="px-3 py-1">{{ $record->skills }}</td>
                 <td class="px-3 py-1">{{ $record->ticket_provided ? 'Yes' : 'No' }}</td>
                 <td class="px-3 py-1">{{ $record->date_hired }}</td>
+                <td class="px-3 py-1">{{ $record->contract_expiry_date }}</td>
                 <td class="px-3 py-1">${{ $record->salary }}</td>
                 <td class="px-3 py-1">{{ $record->residence_renewal }} years</td>
                 <td class="w-48 px-3 py-1">

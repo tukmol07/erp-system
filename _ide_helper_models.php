@@ -55,6 +55,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Payroll> $payrolls
  * @property-read int|null $payrolls_count
+ * @method static \Database\Factories\EmploymentRecordFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord query()
@@ -135,6 +136,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $bonus
  * @property-read \App\Models\EmploymentRecord|null $employee
+ * @method static \Database\Factories\PayrollFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payroll newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payroll newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payroll query()
