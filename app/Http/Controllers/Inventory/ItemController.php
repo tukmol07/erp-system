@@ -16,7 +16,7 @@ class ItemController extends Controller
         $query = Item::with(['category', 'supplier']);
 
         if ($request->filled('search')) {
-            $query->where('name', 'serial_number', 'like', '%' . $request->search . '%');
+            $query->where('name', 'like', '%' . $request->search . '%');
         }
 
         if ($request->filled('category')) {

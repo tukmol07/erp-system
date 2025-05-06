@@ -41,6 +41,8 @@ class DatabaseSeeder extends Seeder
             PayrollSeeder::class,
             CategorySeeder::class,
             SupplierSeeder::class,
+            ItemSeeder::class,
+
 
 
 

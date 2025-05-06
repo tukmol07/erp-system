@@ -47,20 +47,6 @@ class RegisteredUserController extends Controller
             'role' => $request->role,
         ]);
 
-
-        event(new Registered($user));
-
-        switch ($user->role) {
-            case 'Admin':
-                return redirect()->route('admin.dashboard');
-            case 'HR':
-                return redirect()->route('hr.dashboard')->with('success', 'HR user registered.');
-            case 'Accounting':
-                return redirect()->route('accounting.dashboard')->with('success', 'Accounting user registered.');
-            case 'Inventory':
-                return redirect()->route('inventory.dashboard')->with('success', 'Inventory user registered.');
-            default:
-                return redirect()->route('admin.dashboard')->with('success', 'User registered.');
-        }
+        return redirect()->route('admin.dashboard')->with('success', 'User registered successfully.');
     }
 }
