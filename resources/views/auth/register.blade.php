@@ -63,7 +63,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="px-3 py-1 text-sm text-white bg-gray-600 rounded-md hover:bg-red-700" href="{{ route('admin.dashboard') }}">
+            <a class="px-3 py-1 text-sm text-white bg-gray-600 rounded-md hover:bg-gray-700" href="{{ route('admin.dashboard') }}">
                 Back
             </a>
 
