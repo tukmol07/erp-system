@@ -1,29 +1,26 @@
-
 @extends('layouts.app')
 
 @section('content')
-<div class="container p-6 mx-auto">
-    <div class="p-6 mb-6 bg-white rounded shadow-md">
-        <h1 class="mb-2 text-3xl font-bold text-gray-800">HR Dashboard</h1>
-        <p class="text-gray-600">Welcome to the Human Resources Management Panel.</p>
-    </div>
+<div class="container px-0 py-2 mx-0">
+    <div class="flex flex-row gap-6"> <!-- Always row layout -->
 
-
-    <!-- Action Buttons -->
-    <div class="flex flex-wrap gap-4">
-        <a href="{{ route('hr.employment.create') }}"
-           class="inline-block px-6 py-3 font-semibold text-white transition duration-200 bg-indigo-600 rounded-lg shadow hover:bg-indigo-700">
-            ➕ Input Employment Record
-        </a>
-        <a href="{{ route('hr.employment.index') }}"
-           class="inline-block px-6 py-3 font-semibold text-white transition duration-200 bg-indigo-600 rounded-lg shadow hover:bg-indigo-700">
-            📄 View Employment Records
-        </a>
-        <a href="{{ route('hr.payroll.index') }}"
-            class="inline-block px-6 py-3 font-semibold text-white transition duration-200 bg-indigo-600 rounded-lg shadow hover:bg-indigo-700">
-            💰 Payroll System
-        </a>
+        <!-- Sidebar -->
+        <aside class="w-64 p-4 bg-white rounded-lg shadow-md">
+            <nav class="flex flex-col space-y-4">
+                <a href="{{ route('hr.employment.create') }}"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700">
+                    ➕ Input Employment Record
+                </a>
+                <a href="{{ route('hr.employment.index') }}"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700">
+                    📄 View Employment Records
+                </a>
+                <a href="{{ route('hr.payroll.index') }}"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700">
+                    💰 Payroll System
+                </a>
+            </nav>
+        </aside>
     </div>
 </div>
 @endsection
-

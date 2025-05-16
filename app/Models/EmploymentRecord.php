@@ -13,16 +13,17 @@ class EmploymentRecord extends Model
         'employee_number',
         'visa_number',
         'category_resident',
+        'resident_number',
         'nationality',
         'date_arrival',
         'date_hired',
+        'contract_expiry_date',
         'kiwa_contract_number',
         'salary',
         'educational_background',
         'skills',
         'ticket_provided',
         'residence_renewal',
-        'contract_expiry_date'
     ];
 
     protected $casts = [

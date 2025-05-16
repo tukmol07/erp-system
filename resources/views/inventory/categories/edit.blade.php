@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.inventory')
 
 @section('content')
 <div class="container max-w-xl px-6 py-10 mx-auto mt-8 bg-white rounded shadow">

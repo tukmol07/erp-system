@@ -1,9 +1,9 @@
 <?php $__env->startSection('content'); ?>
-<div class="container max-w-3xl min-h-screen px-6 mx-auto mt-8">
-    <form action="<?php echo e(route('inventory.categories.store')); ?>" method="POST" class="p-6 bg-white border rounded-lg shadow-md">
+<div class="max-w-xl p-6 mx-auto max-y-5xl rounded-lg shadow">
+    <form action="<?php echo e(route('inventory.categories.store')); ?>" method="POST" class="max-w-5xl p-6 mx-auto max-y-5xl rounded-lg shadow" style="background-color: rgba(75, 85, 99, 0.60);">
         <?php echo csrf_field(); ?>
 
-        <div class="flex items-center mb-4 space-x-2 text-xl font-bold text-gray-800">
+        <div class="flex items-center mb-4 space-x-2 text-xl font-bold text-white">
             <span class="text-2xl text-purple-600">➕</span>
             <h2>Add Category</h2>
         </div>
@@ -21,19 +21,14 @@
         <div class="flex space-x-4">
             <button
                 type="submit"
-                class="px-3 py-1 text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+                class="px-3 py-1 text-white bg-gray-600 rounded-md hover:bg-gray-700"
             >
                 Save
             </button>
-            <a
-                href="<?php echo e(route('inventory.categories.index')); ?>"
-                class="px-3 py-1 text-white bg-gray-600 rounded-md hover:bg-gray-700"
-            >
-                Cancel
-            </a>
+
         </div>
     </form>
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Erp-system\erp-system\resources\views/inventory/categories/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.inventory', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Erp-system\erp-system\resources\views/inventory/categories/create.blade.php ENDPATH**/ ?>

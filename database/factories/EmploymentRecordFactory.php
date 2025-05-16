@@ -13,6 +13,7 @@ class EmploymentRecordFactory extends Factory
             'employee_number' => 'EMP' . $this->faker->unique()->numerify('###'),
             'visa_number' => 'VISA' . $this->faker->numerify('######'),
             'category_resident' => $this->faker->randomElement(['Resident', 'Non-Resident']),
+            'resident_number' => 'Res' . $this->faker->numerify('#####'),
             'nationality' => $this->faker->country,
             'date_arrival' => $this->faker->date(),
             'date_hired' => $this->faker->date(),

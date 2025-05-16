@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('employee_number');
             $table->string('visa_number');
             $table->string('category_resident');
+            $table->string('resident_number');
             $table->string('nationality');
             $table->date('date_arrival');
             $table->date('date_hired');

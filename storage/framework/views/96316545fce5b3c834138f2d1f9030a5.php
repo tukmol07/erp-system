@@ -1,25 +1,22 @@
 <?php $__env->startSection('content'); ?>
 <div class="container p-4 mx-auto text-sm">
-    <div class="p-6 mb-6 bg-white rounded shadow-md">
+<div class=" p-6 mx-auto rounded-lg shadow" style="background-color: rgba(75, 85, 99, 0.60);">
         <div class="flex items-center justify-between mb-2">
             <div>
-                <h1 class="mb-1 text-3xl font-bold text-gray-800">Payroll Records</h1>
+                <h1 class="mb-1 text-3xl font-bold text-white">Payroll Records</h1>
             </div>
 
             <div class="flex mb-4 space-x-4">
-                <a href="<?php echo e(route('hr.dashboard')); ?>" class="inline-block px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">
-                    Back to HR Dashboard
-                </a>
-
                 <a href="<?php echo e(route('hr.payroll.create')); ?>"
-                   class="inline-block px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
+                   class="inline-block px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">
                     ➕ Create Payroll
                 </a>
+
             </div>
         </div>
 
         <form action="<?php echo e(route('hr.payroll.index')); ?>" method="GET" class="flex items-center space-x-4 text-sm">
-            <label for="month" class="text-gray-700">Month:</label>
+            <label for="month" class="text-white">Month:</label>
             <select name="month" id="month" class="px-2 py-1 border rounded">
                 <option value="">Month</option>
                 <?php $__currentLoopData = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -30,10 +27,10 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
 
-            <label for="search" class="text-gray-700">Employee Name:</label>
+            <label for="search" class="text-white">Employee Name:</label>
             <input type="text" name="search" id="search" value="<?php echo e(request('search')); ?>" class="px-2 py-1 border rounded" placeholder="Search by name">
 
-            <button type="submit" class="px-2 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">Search</button>
+            <button type="submit" class="px-2 py-1 text-white bg-white rounded hover:bg-gray-700">Search</button>
         </form>
         <?php if(session('success')): ?>
             <div class="p-4 mb-4 text-green-800 bg-green-100 rounded">
@@ -78,12 +75,12 @@
                             <td class="px-3 py-1"><?php echo e($payroll->remarks); ?></td>
                             <td class="flex px-3 py-1 space-x-2">
                                 <a href="<?php echo e(route('hr.payroll.edit', $payroll->id)); ?>"
-                                    class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Edit</a>
+                                    class="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-gray-700">Edit</a>
 
                                 <form action="<?php echo e(route('hr.payroll.destroy', $payroll->id)); ?>" method="POST" class="inline-block" onsubmit="return confirm('Are you sure?');">
                                     <?php echo csrf_field(); ?>
                                     <?php echo method_field('DELETE'); ?>
-                                    <button type="submit" class="px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">
+                                    <button type="submit" class="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700">
                                         Delete
                                     </button>
                                 </form>
@@ -107,4 +104,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Erp-system\erp-system\resources\views/hr/payroll/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.hr', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Erp-system\erp-system\resources\views/hr/payroll/index.blade.php ENDPATH**/ ?>

@@ -1,20 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.inventory')
 
 @section('content')
-<div class="container p-6 mx-auto text-sm">
-    <div class="flex items-center justify-between mb-6">
-        <h1 class="text-3xl font-bold text-gray-800">Suppliers</h1>
-        <a href="{{ route('inventory.suppliers.create') }}" class="inline-block px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
-            ➕ Add Supplier
-        </a>
-        <a href="{{ route('inventory.dashboard') }}" class="inline-block px-3 py-1 text-sm text-white bg-gray-600 rounded hover:bg-gray-700">
-            Back to Inventory
-        </a>
-    </div>
 
-    <div class="overflow-x-auto bg-white rounded shadow">
+
+<div class="max-w-5xl p-6 mx-auto rounded-lg shadow" style="background-color: rgba(75, 85, 99, 0.60);">
+    <div class="container p-6 mx-auto text-sm">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-3xl font-bold text-white">Suppliers</h1>
+            <a href="{{ route('inventory.suppliers.create') }}" class="inline-block px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">
+                ➕ Add Supplier
+            </a>
+        </div>
+    </div>
         <table class="min-w-full text-sm text-left border divide-y divide-gray-200">
-            <thead class="bg-gray-100">
+            <thead class="bg-gray-200">
                 <tr>
                     <th class="p-3">#</th>
                     <th class="p-3">Company Name</th>
@@ -25,7 +24,7 @@
                     <th class="p-3">Actions</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-100">
+            <tbody class="divide-y divide-gray- bg-white">
                 @forelse($suppliers as $supplier)
                     <tr>
                         <td class="p-3">{{ $supplier->id }}</td>
@@ -36,11 +35,11 @@
                         <td class="p-3">{{ $supplier->contact_number }}</td>
                         <td class="flex p-3 space-x-2">
                             <a href="{{ route('inventory.suppliers.edit', $supplier->id) }}"
-                               class="px-2 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">Edit</a>
+                               class="px-2 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Edit</a>
                             <form action="{{ route('inventory.suppliers.destroy', $supplier->id) }}" method="POST" onsubmit="return confirm('Delete this supplier?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="inline-block px-2 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Delete</button>
+                                <button type="submit" class="inline-block px-2 py-1 text-white bg-red-600 rounded hover:bg-red-700">Delete</button>
                             </form>
                         </td>
                     </tr>

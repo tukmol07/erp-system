@@ -41,6 +41,7 @@ namespace App\Models{
  * @property string $employee_number
  * @property string $visa_number
  * @property string $category_resident
+ * @property string $resident_number
  * @property string $nationality
  * @property string $date_arrival
  * @property string $date_hired
@@ -71,6 +72,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereKiwaContractNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereNationality($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereResidenceRenewal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereResidentNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereSalary($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereSkills($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|EmploymentRecord whereTicketProvided($value)
@@ -218,7 +220,7 @@ namespace App\Models{
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
- * @property \App\Models\Role|null $role
+ * @property string $role
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at

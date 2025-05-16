@@ -1,25 +1,9 @@
 <?php $__env->startSection('content'); ?>
-<div class="container p-6 mx-auto">
+<div class="max-w-6xl p-6 mx-auto rounded-lg shadow" style="background-color: rgba(75, 85, 99, 0.60);">
 
-    <!-- Heading -->
-    <!-- Heading -->
-<div class="flex items-center justify-between mb-6">
-    <h1 class="text-3xl font-bold text-gray-800">Inventory Dashboard</h1>
-
-    <div class="flex space-x-4">
-        <a href="<?php echo e(route('inventory.items.create')); ?>" class="inline-block px-2 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
-            ➕ Add New Item
-        </a>
-        <a href="<?php echo e(route('inventory.categories.index')); ?>"
-           class="inline-block px-2 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
-            📂 View Categories
-        </a>
-        <a href="<?php echo e(route('inventory.suppliers.index')); ?>"
-           class="inline-block px-2 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
-            🧾 View Suppliers
-        </a>
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-3xl font-bold text-white">Inventory Dashboard</h1>
     </div>
-</div>
 
 
     <!-- Search and Filter -->
@@ -43,7 +27,7 @@
             <option value="out_of_stock" <?php echo e(request('filter') == 'out_of_stock' ? 'selected' : ''); ?>>Out of Stock</option>
         </select>
 
-        <button type="submit" class="inline-block px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">
+        <button type="submit" class="inline-block px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">
             🔍 Search
         </button>
     </form>
@@ -78,11 +62,11 @@
                     <td class="p-3"><?php echo e($item->supplier->company_name ?? '-'); ?></td>
                     <td class="p-3"><?php echo e($item->last_purchase_date ? $item->last_purchase_date->format('Y-m-d') : '-'); ?></td>
                     <td class="flex p-3 space-x-2">
-                        <a href="<?php echo e(route('inventory.items.edit', $item->id)); ?>" class="inline-block px-3 py-1 text-white bg-indigo-600 rounded hover:bg-indigo-700">Edit</a>
+                        <a href="<?php echo e(route('inventory.items.edit', $item->id)); ?>" class="inline-block px-3 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Edit</a>
                         <form action="<?php echo e(route('inventory.items.destroy', $item->id)); ?>" method="POST" onsubmit="return confirm('Delete this item?')">
                             <?php echo csrf_field(); ?>
                             <?php echo method_field('DELETE'); ?>
-                            <button type="submit" class="inline-block px-2 py-1 text-white bg-gray-600 rounded hover:bg-gray-700">Delete</button>
+                            <button type="submit" class="inline-block px-2 py-1 text-white bg-red-600 rounded hover:bg-red-700">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -104,4 +88,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Erp-system\erp-system\resources\views/inventory/dashboard.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.inventory', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Erp-system\erp-system\resources\views/inventory/dashboard.blade.php ENDPATH**/ ?>
