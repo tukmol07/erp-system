@@ -37,14 +37,14 @@
                     <!-- Remember Me -->
                     <div class="block mt-10">
                         <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox" class="text-indigo-600 rounded shadow-sm border-idigo-300 focus:ring-indigo-500" name="remember">
+                            <input id="remember_me" type="checkbox" class="text-gray-600 rounded shadow-sm border-idigo-300 focus:ring-gray-500" name="remember">
                             <span class="text-sm text-black ms-2 ">{{ __('Remember me') }}</span>
                         </label>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="flex items-center justify-end mt-4">
-                        <x-primary-button class="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                        <x-primary-button class="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-gray-700">
                             {{ __('Log in') }}
                         </x-primary-button>
                     </div>

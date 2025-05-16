@@ -176,7 +176,7 @@
                     <!-- Remember Me -->
                     <div class="block mt-10">
                         <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox" class="text-indigo-600 rounded shadow-sm border-idigo-300 focus:ring-indigo-500" name="remember">
+                            <input id="remember_me" type="checkbox" class="text-gray-600 rounded shadow-sm border-idigo-300 focus:ring-gray-500" name="remember">
                             <span class="text-sm text-black ms-2 "><?php echo e(__('Remember me')); ?></span>
                         </label>
                     </div>
@@ -185,14 +185,14 @@
                     <div class="flex items-center justify-end mt-4">
                         <?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginald411d1792bd6cc877d687758b753742c = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['class' => 'inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['class' => 'inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-gray-700']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('primary-button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700']); ?>
+<?php $component->withAttributes(['class' => 'inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-md hover:bg-gray-700']); ?>
                             <?php echo e(__('Log in')); ?>
 
                          <?php echo $__env->renderComponent(); ?>
