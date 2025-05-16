@@ -69,16 +69,16 @@
             </div>
 
             <div class="flex flex-col">
-    <label class="mb-1 font-semibold text-white">Skills</label>
-    <select name="skills" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
-        <option value="">Select a skill</option>
-        <option value="Professional">Professional</option>
-        <option value="High Skilled">High Skilled</option>
-        <option value="Skilled">Skilled</option>
-        <option value="Labors">Labors</option>
-        <option value="Others">Others</option>
-    </select>
-</div>
+                <label class="mb-1 font-semibold text-white">Skills</label>
+                <select name="skills" required class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-500">
+                    <option value="">Select a skill</option>
+                    <option value="Professional">Professional</option>
+                    <option value="High Skilled">High Skilled</option>
+                    <option value="Skilled">Skilled</option>
+                    <option value="Labors">Labors</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
 
 
             <div class="flex flex-col">

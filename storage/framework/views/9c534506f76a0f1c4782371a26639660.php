@@ -16,9 +16,9 @@
 </head>
 <body class="font-sans antialiased bg-gray-100">
 
-    <div class="flex  ">
+    <div class="flex ">
         <!-- Sidebar -->
-        <aside class="w-64 p-4 my-8 mb-4 bg-white opacity-40 rounded-lg">
+        <aside class="w-64 p-4 my-8 mb-4 bg-white rounded-lg opacity-40">
             <nav class="flex flex-col py-12 space-y-4 ">
                 <a href="<?php echo e(route('hr.employment.index')); ?>"
                    class="flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-600 rounded hover:bg-gray-700 ">
@@ -52,7 +52,7 @@
             <?php endif; ?>
 
             <!-- Page Content -->
-            <main class="p-6 bg-cover bg-center bg-no-repeat" style="background-image: url('<?php echo e(asset('images/background.jpg')); ?>');">
+            <main class="min-h-screen p-6 bg-center bg-no-repeat bg-cover" style="background-image: url('<?php echo e(asset('images/background.jpg')); ?>');">
                 <?php echo $__env->yieldContent('content'); ?>
             </main>
         </div>
